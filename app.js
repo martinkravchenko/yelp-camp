@@ -22,9 +22,7 @@ const
     campgroundsRoutes = require('./routes/campgrounds'),
     commentsRoutes = require('./routes/comments')
 
-
-//mongoose.connect('mongodb://localhost/yelp_camp')
-mongoose.connect('mongodb://admin:7ApwUTQvS1F54oa@ds251988.mlab.com:51988/yelp_camp')
+mongoose.connect(process.env.DATABASEURL)
 app.use(bodyParser.urlencoded({ extended: true }))
 app.set("view engine", 'ejs')
 app.use(express.static(`${__dirname}/public`))
@@ -55,4 +53,6 @@ app.use('/', indexRoutes)
 app.use('/campgrounds', campgroundsRoutes)
 app.use('/campgrounds/:id/comments', commentsRoutes)
 
-app.listen(process.env.PORT, process.env.IP, () => console.log("Server started on https://webdevbootcamp-kravmart.c9users.io/"))
+app.listen(process.env.PORT, process.env.IP, () => {
+    console.log("Server started on https://webdevbootcamp-kravmart.c9users.io/")
+})
