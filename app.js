@@ -22,7 +22,9 @@ const
     campgroundsRoutes = require('./routes/campgrounds'),
     commentsRoutes = require('./routes/comments')
 
-mongoose.connect(process.env.DATABASEURL)
+const dburl = process.env.DATABASEURL || 'mongodb://localhost/yelp_camp'
+mongoose.connect(dburl)
+
 app.use(bodyParser.urlencoded({ extended: true }))
 app.set("view engine", 'ejs')
 app.use(express.static(`${__dirname}/public`))
