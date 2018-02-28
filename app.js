@@ -23,7 +23,8 @@ const
     commentsRoutes = require('./routes/comments')
 
 
-mongoose.connect('mongodb://localhost/yelp_camp')
+//mongoose.connect('mongodb://localhost/yelp_camp')
+mongoose.connect('mongodb://admin:7ApwUTQvS1F54oa@ds251988.mlab.com:51988/yelp_camp')
 app.use(bodyParser.urlencoded({ extended: true }))
 app.set("view engine", 'ejs')
 app.use(express.static(`${__dirname}/public`))
