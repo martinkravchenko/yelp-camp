@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
             req.flash('error', "An error occured!")
             res.redirect('back')
         } else {
-            res.render('campgrounds/index', { campgrounds })
+            res.render('campgrounds/index', { campgrounds, page: 'campgrounds' })
         }
     })
 })
